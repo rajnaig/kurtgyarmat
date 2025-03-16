@@ -3,57 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --primary: #884e00;      /* Bőrszín/nyereg barna */
-  --secondary: #825b1f;    /* Mélyebb barna */
-  --accent: #c19a6b;       /* Homok/bőrszín */
-  --muted: #f5f0e6;        /* Világos homok/pergamen */
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
 }
 
-/* Egyszerű alap stílusok */
 body {
-  background-color: white;
-  color: #333;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
 }
 
-h1, h2, h3, h4 {
-  color: var(--primary);
-  font-weight: bold;
+@layer base {
+  h1, h2, h3, h4 {
+    @apply font-bold text-primary;
+  }
 }
 
-.btn-primary {
-  background-color: var(--primary);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-}
-
-.btn-outline {
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-}
-
-.bg-primary {
-  background-color: var(--primary);
-}
-
-.bg-secondary {
-  background-color: var(--secondary);
-}
-
-.bg-accent {
-  background-color: var(--accent);
-}
-
-.bg-muted {
-  background-color: var(--muted);
-}
-
-.text-primary {
-  color: var(--primary);
-}
-
-.text-secondary {
-  color: var(--secondary);
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-4 py-2 rounded-md transition-colors hover:bg-opacity-90;
+  }
+  
+  .btn-outline {
+    @apply border border-primary text-primary px-4 py-2 rounded-md transition-colors hover:bg-primary hover:text-white;
+  }
 }
