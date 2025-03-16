@@ -4,8 +4,8 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Globe } from "lucide-react"
-import { DropdownMenu, DropdownMenuTrigger } from "./dropdown-menu"
-import { DropdownMenuContent, DropdownMenuItem } from "@radix-ui/react-dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./dropdown-menu"
+
 
 export default function LanguageSwitcher() {
   const [language, setLanguage] = useState("Magyar")

@@ -3,27 +3,50 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  --color-primary: 153 61 0;         /* Tűz narancs (#993D00) - pásztortűz */
+  --color-secondary: 46 64 87;       /* Éjkék (#2E4057) - pusztai éjszaka */
+  --color-accent: 209 167 39;        /* Aranysárga (#D1A727) - holdfény */
+  
+  --color-leather: 121 85 61;        /* Sötét bőr (#79553D) */
+  --color-parchment: 241 236 226;    /* Holdvilág (#F1ECE2) */
+  --color-stone: 35 40 48;           /* Éjszakai kő (#232830) */
+  
+  --color-background: 246 243 237;   /* Halvány hold (#F6F3ED) */
+  --color-foreground: 35 40 48;      /* Éjszakai kő (#232830) */
 }
 
 @layer base {
-  h1, h2, h3, h4 {
-    @apply font-bold text-primary;
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-[rgb(var(--color-background))] text-[rgb(var(--color-foreground))];
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-[rgb(var(--color-primary))];
+  }
+  
+  *:focus-visible {
+    @apply outline-2 outline-[rgb(var(--color-accent))] outline-offset-2;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-white px-4 py-2 rounded-md transition-colors hover:bg-opacity-90;
+    @apply bg-[rgb(var(--color-primary))] text-white px-4 py-2 rounded-md transition-colors hover:bg-[rgb(var(--color-primary))]/90;
   }
   
-  .btn-outline {
-    @apply border border-primary text-primary px-4 py-2 rounded-md transition-colors hover:bg-primary hover:text-white;
+  .btn-secondary {
+    @apply border border-[rgb(var(--color-primary))] text-[rgb(var(--color-primary))] px-4 py-2 rounded-md transition-colors hover:bg-[rgb(var(--color-primary))]/10;
+  }
+  
+  .section-title {
+    @apply text-3xl font-bold tracking-tight sm:text-4xl;
+  }
+  
+  .section-subtitle {
+    @apply text-sm font-medium tracking-wider uppercase text-[rgb(var(--color-secondary))];
   }
 }
