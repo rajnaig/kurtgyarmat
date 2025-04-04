@@ -97,7 +97,7 @@ export function MediaViewer({ items, currentItem, onClose, onNavigate }: MediaVi
                 isLoading ? "opacity-0" : "opacity-100"
               )}
               onLoad={() => setIsLoading(false)}
-              unoptimized={currentItem.src.includes('drive.google.com')} // Don't optimize external images
+              unoptimized={currentItem.src.startsWith('http')} // Ne optimizáljuk a külső képeket
             />
           </div>
         ) : (

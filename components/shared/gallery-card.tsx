@@ -31,6 +31,7 @@ export function GalleryCard({ item, onClick }: GalleryCardProps) {
           width={800}
           height={600}
           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          unoptimized={thumbnailSrc.startsWith('http')} // Ne optimizáljuk a külső képeket
         />
         {item.type === "video" && (
           <div className="absolute inset-0 flex items-center justify-center">
