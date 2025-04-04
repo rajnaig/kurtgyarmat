@@ -17,37 +17,37 @@ interface MediaViewerProps {
 export function MediaViewer({ items, currentItem, onClose, onNavigate }: MediaViewerProps) {
   const [isLoading, setIsLoading] = useState(true)
 
-  // Early return before hooks
-  if (!currentItem) return null
-
-  const currentIndex = items.findIndex(item => item.id === currentItem.id)
-  const prevItem = currentIndex > 0 ? items[currentIndex - 1] : null
-  const nextItem = currentIndex < items.length - 1 ? items[currentIndex + 1] : null
-
   // Reset loading state when item changes
   useEffect(() => {
-    setIsLoading(true)
+    if (currentItem) {
+      setIsLoading(true)
+    }
   }, [currentItem])
 
   // Handle keyboard navigation
   useEffect(() => {
-    const handlePrev = () => {
-      if (prevItem) onNavigate(prevItem)
-    }
+    if (!currentItem) return;
 
-    const handleNext = () => {
-      if (nextItem) onNavigate(nextItem)
-    }
+    const currentIndex = items.findIndex(item => item.id === currentItem.id);
+    const prevItem = currentIndex > 0 ? items[currentIndex - 1] : null;
+    const nextItem = currentIndex < items.length - 1 ? items[currentIndex + 1] : null;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose()
-      if (e.key === "ArrowLeft") handlePrev()
-      if (e.key === "ArrowRight") handleNext()
-    }
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft" && prevItem) onNavigate(prevItem);
+      if (e.key === "ArrowRight" && nextItem) onNavigate(nextItem);
+    };
 
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [currentItem, prevItem, nextItem, onNavigate, onClose])
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentItem, items, onNavigate, onClose]);
+
+  // Early return after hooks
+  if (!currentItem) return null;
+
+  const currentIndex = items.findIndex(item => item.id === currentItem.id);
+  const prevItem = currentIndex > 0 ? items[currentIndex - 1] : null;
+  const nextItem = currentIndex < items.length - 1 ? items[currentIndex + 1] : null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
