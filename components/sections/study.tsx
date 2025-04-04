@@ -67,7 +67,7 @@ export function Study() {
           
           <div className="flex justify-center mt-8">
             <Button className="flex items-center gap-2" size="lg" asChild>
-              <Link href="/Szabo_Bandi_nyomtatni_kesz.docx" download>
+              <Link href="/kurtgyarmat_tanulmany.docx" download>
                 <FileDown className="h-5 w-5" /> Tanulmány letöltése
               </Link>
             </Button>
