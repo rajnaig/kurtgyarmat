@@ -17,27 +17,28 @@ interface MediaViewerProps {
 export function MediaViewer({ items, currentItem, onClose, onNavigate }: MediaViewerProps) {
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    // Reset loading state when item changes
-    setIsLoading(true)
-  }, [currentItem])
-
+  // Early return before hooks
   if (!currentItem) return null
 
   const currentIndex = items.findIndex(item => item.id === currentItem.id)
   const prevItem = currentIndex > 0 ? items[currentIndex - 1] : null
   const nextItem = currentIndex < items.length - 1 ? items[currentIndex + 1] : null
 
-  const handlePrev = () => {
-    if (prevItem) onNavigate(prevItem)
-  }
-
-  const handleNext = () => {
-    if (nextItem) onNavigate(nextItem)
-  }
+  // Reset loading state when item changes
+  useEffect(() => {
+    setIsLoading(true)
+  }, [currentItem])
 
   // Handle keyboard navigation
   useEffect(() => {
+    const handlePrev = () => {
+      if (prevItem) onNavigate(prevItem)
+    }
+
+    const handleNext = () => {
+      if (nextItem) onNavigate(nextItem)
+    }
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose()
       if (e.key === "ArrowLeft") handlePrev()
@@ -46,7 +47,7 @@ export function MediaViewer({ items, currentItem, onClose, onNavigate }: MediaVi
 
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [currentItem])
+  }, [currentItem, prevItem, nextItem, onNavigate, onClose])
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
@@ -61,7 +62,7 @@ export function MediaViewer({ items, currentItem, onClose, onNavigate }: MediaVi
       {/* Navigation buttons */}
       {prevItem && (
         <button
-          onClick={handlePrev}
+          onClick={() => prevItem && onNavigate(prevItem)}
           className="absolute left-4 z-50 rounded-full bg-black/50 p-2 text-white hover:bg-black/70"
         >
           <ChevronLeft className="h-8 w-8" />
@@ -70,7 +71,7 @@ export function MediaViewer({ items, currentItem, onClose, onNavigate }: MediaVi
 
       {nextItem && (
         <button
-          onClick={handleNext}
+          onClick={() => nextItem && onNavigate(nextItem)}
           className="absolute right-4 z-50 rounded-full bg-black/50 p-2 text-white hover:bg-black/70"
         >
           <ChevronRight className="h-8 w-8" />
