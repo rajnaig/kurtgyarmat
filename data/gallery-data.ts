@@ -6,84 +6,84 @@ export const galleryItems: MediaItem[] = [
     id: "image-1",
     title: "Lovas íjászat bemutató",
     description: "Hagyományőrző lovas íjászat bemutató",
-    src: "/gallery/BVE_0087.JPG", // Local path to the image
+    src: "/gallery/BVE_0088.JPG",
     type: "image",
   },
   {
     id: "image-2",
-    title: "Lovas verseny",
-    description: "Országos lovas verseny",
-    src: "/gallery/BVE_0088.JPG", // Local path to the image
+    title: "Lovas íjászat verseny",
+    description: "Országos lovas íjászat verseny",
+    src: "/gallery/BVE_0099.JPG",
     type: "image",
   },
   {
     id: "image-3",
     title: "Hagyományőrző bemutató",
     description: "Hagyományőrző bemutató a rendezvényen",
-    src: "/gallery/BVE_0089.JPG", // Local path to the image
+    src: "/gallery/BVE_0113 (1).JPG",
     type: "image",
   },
   {
     id: "image-4",
     title: "Lovas bemutató",
     description: "Lovas bemutató a rendezvényen",
-    src: "/gallery/BVE_0092.JPG", // Local path to the image
+    src: "/gallery/BVE_0128(1).JPG",
     type: "image",
   },
   {
     id: "image-5",
-    title: "Lovas íjászat verseny",
-    description: "Országos lovas íjászat verseny",
-    src: "/gallery/BVE_0093.JPG", // Local path to the image
+    title: "Lovas íjászat gyakorlat",
+    description: "Kassai-rendszerű lovas íjászat gyakorlat",
+    src: "/gallery/BVE_0129(1).JPG",
     type: "image",
   },
   {
     id: "image-6",
-    title: "Lovas bemutató",
-    description: "Lovas bemutató a rendezvényen",
-    src: "/gallery/BVE_0094.JPG", // Local path to the image
+    title: "Hagyományőrző tevékenység",
+    description: "Magyar lovas hagyományok bemutatása",
+    src: "/gallery/BVE_0132.JPG",
     type: "image",
   },
   {
     id: "image-7",
-    title: "Hagyományőrző bemutató",
-    description: "Hagyományőrző bemutató a rendezvényen",
-    src: "/gallery/BVE_0095.JPG", // Local path to the image
+    title: "Íjászat oktatás",
+    description: "Íjászat oktatás kezdőknek",
+    src: "/gallery/BVE_0135.JPG",
     type: "image",
   },
   {
     id: "image-8",
-    title: "Lovas íjászat verseny",
-    description: "Országos lovas íjászat verseny",
-    src: "/gallery/BVE_0098.JPG", // Local path to the image
+    title: "Lovas bemutató",
+    description: "Hagyományos lovas bemutató",
+    src: "/gallery/BVE_0140.JPG",
     type: "image",
   },
   {
     id: "image-9",
-    title: "Lovas bemutató",
-    description: "Lovas bemutató a rendezvényen",
-    src: "/gallery/BVE_0099.JPG", // Local path to the image
+    title: "Íjász verseny",
+    description: "Egyesületi íjász verseny",
+    src: "/gallery/BVE_0143 (1).JPG",
     type: "image",
   },
   {
     id: "image-10",
-    title: "Hagyományőrző bemutató",
-    description: "Hagyományőrző bemutató a rendezvényen",
-    src: "/gallery/BVE_0102.JPG", // Local path to the image
+    title: "Lovas íjászat gyakorlat",
+    description: "Lovas íjászat gyakorlat a pályán",
+    src: "/gallery/BVE_0147.JPG",
     type: "image",
   },
   {
     id: "image-11",
-    title: "Lovas íjászat verseny",
-    description: "Országos lovas íjászat verseny",
-    src: "/gallery/BVE_0103.JPG", // Local path to the image
+    title: "Hagyományőrző bemutató",
+    description: "Kézműves és lovas bemutató",
+    src: "/gallery/BVE_0148.JPG",
     type: "image",
   },
   {
     id: "image-12",
-    title: "Lovas bemutató",
-    description: "Lovas bemutató a rendezvényen",
-    src: "/gallery/BVE_0108.JPG", // Local path to the image
+    title: "Lovas íjászat verseny",
+    description: "Nemzetközi lovas íjászat verseny",
+    src: "/gallery/BVE_0151.JPG",
     type: "image",
   },
 ];
