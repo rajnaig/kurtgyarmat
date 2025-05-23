@@ -1,26 +1,25 @@
 // components/layout/header.tsx
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const navigation = [
     { name: "Történetünk", href: "#tortenet" },
     { name: "Tevékenységek", href: "#tevekenysegek" },
     { name: "Rendezvények", href: "#rendezvenyek" },
-    { name: "Lovarda", href: "#lovarda" },
     { name: "Oktatás", href: "#oktatas" },
     { name: "Galéria", href: "#galeria" },
     { name: "Tanulmány", href: "#tanulmany" },
-    { name: "Kapcsolat", href: "#kapcsolat" }
-  ]
+    { name: "Kapcsolat", href: "#kapcsolat" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -33,14 +32,16 @@ export function Header() {
             height={40}
             className="rounded-full"
           />
-          <span className="hidden text-xl font-bold sm:inline-block">Kürtgyarmat</span>
+          <span className="hidden text-xl font-bold sm:inline-block">
+            Kürtgyarmat
+          </span>
         </div>
 
         <nav className="hidden md:flex items-center gap-6">
           {navigation.map((item) => (
-            <Link 
+            <Link
               key={item.name}
-              href={item.href} 
+              href={item.href}
               className="text-sm font-medium hover:text-primary"
             >
               {item.name}
@@ -59,9 +60,9 @@ export function Header() {
             <SheetContent side="right">
               <nav className="flex flex-col gap-4 mt-8">
                 {navigation.map((item) => (
-                  <Link 
+                  <Link
                     key={item.name}
-                    href={item.href} 
+                    href={item.href}
                     className="text-lg font-medium hover:text-primary"
                   >
                     {item.name}
@@ -73,5 +74,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

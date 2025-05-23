@@ -1,61 +1,85 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-
-export const alt = "Kürtgyarmat Hagyományőrző Íjász Egyesület";
+// Image metadata
 export const size = {
   width: 1200,
   height: 630,
 };
+
 export const contentType = "image/png";
 
+// Image generation
 export default async function Image() {
   return new ImageResponse(
     (
       <div
         style={{
-          background: "linear-gradient(135deg, #8B4513 0%, #D2691E 100%)",
+          background: "linear-gradient(135deg, #8b4513 0%, #a16207 100%)",
           width: "100%",
           height: "100%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          color: "white",
-          fontFamily: "Inter",
+          fontFamily: "Georgia, serif",
         }}
       >
+        {/* Fejléc */}
         <div
           style={{
-            fontSize: 60,
+            fontSize: 72,
             fontWeight: "bold",
+            color: "white",
             textAlign: "center",
             marginBottom: 20,
             textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
           }}
         >
-          Kürtgyarmat
+          Kurtgyármat
         </div>
+
+        {/* Alcím */}
         <div
           style={{
-            fontSize: 30,
+            fontSize: 48,
+            color: "#f3e8d0",
             textAlign: "center",
-            opacity: 0.9,
+            marginBottom: 40,
+          }}
+        >
+          Lovas Íjász Egyesület
+        </div>
+
+        {/* Leírás */}
+        <div
+          style={{
+            fontSize: 32,
+            color: "white",
+            textAlign: "center",
             maxWidth: 800,
-            lineHeight: 1.2,
+            lineHeight: 1.4,
           }}
         >
-          Hagyományőrző Íjász Egyesület
+          Magyar hagyományőrző lovas íjászat
         </div>
+
+        {/* Decorative element */}
         <div
           style={{
-            fontSize: 24,
-            textAlign: "center",
-            marginTop: 20,
-            opacity: 0.8,
+            position: "absolute",
+            top: 40,
+            right: 40,
+            width: 100,
+            height: 100,
+            background: "rgba(255,255,255,0.1)",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 48,
           }}
         >
-          Magyar lovas íjász hagyományok őrzése 2003 óta
+          🏹
         </div>
       </div>
     ),

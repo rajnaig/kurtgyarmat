@@ -42,13 +42,6 @@ export default function MobileMenu() {
             Rendezvények
           </Link>
           <Link
-            href="#lovarda"
-            className="text-lg font-medium hover:text-primary"
-            onClick={() => setOpen(false)}
-          >
-            Lovarda
-          </Link>
-          <Link
             href="#oktatas"
             className="text-lg font-medium hover:text-primary"
             onClick={() => setOpen(false)}

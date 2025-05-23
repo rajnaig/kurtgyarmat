@@ -1,58 +1,31 @@
-// components/sections/gallery.tsx
-"use client"
+"use client";
 
-import { useState } from "react"
-import { GalleryCard, MediaItem } from "@/components/shared/gallery-card"
-import { MediaViewer } from "@/components/shared/media-viewer"
-import { galleryItems } from "@/data/gallery-data"
+import { GalleryGrid } from "@/components/shared/gallery-card";
+import { galleryItems } from "@/data/gallery-data";
 
 export function Gallery() {
-  const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null)
-
-  const handleItemClick = (item: MediaItem) => {
-    setSelectedItem(item)
-  }
-
-  const handleClose = () => {
-    setSelectedItem(null)
-  }
-
-  const handleNavigate = (item: MediaItem) => {
-    setSelectedItem(item)
-  }
+  const handleItemClick = (item: any) => {
+    // TODO: Modal vagy lightbox megnyitása
+    console.log("Gallery item clicked:", item);
+  };
 
   return (
-    <section id="galeria" className="py-16 md:py-24 bg-parchment/30">
-      <div className="container">
-        <div className="mb-12 text-center">
-          <h2 className="section-title">Galéria</h2>
-          <div className="mt-4 h-1 w-20 bg-primary mx-auto"></div>
-          <p className="mt-6 max-w-2xl mx-auto text-foreground/70">
-            Tekintsd meg egyesületünk tevékenységeit képekben
+    <section className="py-16 px-4 md:py-24 md:px-6 lg:px-8 bg-parchment/30">
+      <div className="container mx-auto max-w-7xl">
+        {/* Fejléc */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-4">
+            Galériánk
+          </h2>
+          <p className="text-lg text-stone-600 max-w-2xl mx-auto">
+            Tekintse meg egyesületünk programjait, versenyeit és hagyományőrző
+            tevékenységeit
           </p>
         </div>
 
-        {/* Gallery grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {galleryItems.map((item) => (
-            <GalleryCard
-              key={item.id}
-              item={item}
-              onClick={handleItemClick}
-            />
-          ))}
-        </div>
-
-        {/* Media viewer modal */}
-        {selectedItem && (
-          <MediaViewer
-            items={galleryItems}
-            currentItem={selectedItem}
-            onClose={handleClose}
-            onNavigate={handleNavigate}
-          />
-        )}
+        {/* Gallery Grid */}
+        <GalleryGrid items={galleryItems} onItemClick={handleItemClick} />
       </div>
     </section>
-  )
+  );
 }
