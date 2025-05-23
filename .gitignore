@@ -1,0 +1,97 @@
+﻿# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Production builds
+/.next/
+/out/
+/build/
+/dist/
+
+# Environment variables
+.env
+.env*.local
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local development
+.vercel
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Backup files
+*.backup
+*.bak
+*.tmp
+temp/
+tmp/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Optional cache directories
+.npm/
+.eslintcache
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+jspm_packages/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ===================================================================
+# NAGY FÁJLOK - CSAK HA SZÜKSÉGES KIZÁRNI
+# ===================================================================
+# Ha a képek túl nagyok, uncomment ezeket:
+# public/gallery/*.JPG
+# public/gallery/*.jpg
+# public/gallery/*.PNG
+# public/gallery/*.png
+# *.docx
+# *.pdf
+
