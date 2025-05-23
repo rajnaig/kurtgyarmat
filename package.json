@@ -2,6 +2,10 @@
   "name": "kurtgyarmat-web",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=9.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -17,7 +21,6 @@
     "firebase": "^11.6.0",
     "lucide-react": "^0.274.0",
     "next": "^15.3.2",
-    "next-cloudinary": "^6.16.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^1.14.0",
