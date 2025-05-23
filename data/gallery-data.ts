@@ -20,21 +20,21 @@ export const galleryItems: MediaItem[] = [
     id: "image-3",
     title: "Hagyományőrző bemutató",
     description: "Hagyományőrző bemutató a rendezvényen",
-    src: "/gallery/BVE_0113 (1).JPG",
+    src: "/gallery/BVE_0113_1.JPG",
     type: "image",
   },
   {
     id: "image-4",
     title: "Lovas bemutató",
     description: "Lovas bemutató a rendezvényen",
-    src: "/gallery/BVE_0128(1).JPG",
+    src: "/gallery/BVE_0128_1.JPG",
     type: "image",
   },
   {
     id: "image-5",
     title: "Lovas íjászat gyakorlat",
     description: "Kassai-rendszerű lovas íjászat gyakorlat",
-    src: "/gallery/BVE_0129(1).JPG",
+    src: "/gallery/BVE_0129_1.JPG",
     type: "image",
   },
   {
@@ -62,7 +62,7 @@ export const galleryItems: MediaItem[] = [
     id: "image-9",
     title: "Íjász verseny",
     description: "Egyesületi íjász verseny",
-    src: "/gallery/BVE_0143 (1).JPG",
+    src: "/gallery/BVE_0143_1.JPG",
     type: "image",
   },
   {
