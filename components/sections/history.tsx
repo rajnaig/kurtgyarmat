@@ -1,8 +1,8 @@
 // components/sections/history.tsx
-import Link from "next/link"
-import Image from "next/image"
-import { ChevronRight } from "lucide-react"
-import { TimelineItem } from "../shared/timeline-item"
+import Link from "next/link";
+import Image from "next/image";
+import { ChevronRight } from "lucide-react";
+import { TimelineItem } from "../shared/timeline-item";
 
 export function History() {
   return (
@@ -15,16 +15,19 @@ export function History() {
 
         <div className="grid gap-12 md:grid-cols-2 items-center">
           <div>
-            <h3 className="text-2xl font-bold mb-4">A Kürtgyarmat név eredete</h3>
+            <h3 className="text-2xl font-bold mb-4">
+              A Kürtgyarmat név eredete
+            </h3>
             <p className="mb-4">
-              A Kürtgyarmat név a honfoglaláskori hét magyar törzs egyikére utal. 895-ben a türk-magyarok által elfoglalt Kárpát-medence területén Kürtgyarmat: Huba vezér irányítása alatt állt.
+              A Kürtgyarmat név a honfoglaláskori hét magyar törzs egyikére
+              utal. 895-ben a türk-magyarok által elfoglalt Kárpát-medence
+              területén Kürtgyarmat: Huba vezér irányítása alatt állt.
             </p>
             <p className="mb-4">
-              Egyesületünk 2003-ban alakult baráti társaságként, majd 2007-ben hivatalosan is bejegyzésre került. Célunk a magyar lovas és íjász hagyományok ápolása, továbbadása a fiatalabb generációknak.
+              Egyesületünk 2003-ban alakult baráti társaságként, majd 2007-ben
+              hivatalosan is bejegyzésre került. Célunk a magyar lovas és íjász
+              hagyományok ápolása, továbbadása a fiatalabb generációknak.
             </p>
-            <Link href="/tortenetunk" className="inline-flex items-center text-primary hover:underline">
-              Bővebben történetünkről <ChevronRight className="ml-1 h-4 w-4" />
-            </Link>
           </div>
           <div className="relative h-[400px] rounded-lg overflow-hidden">
             <Image
@@ -37,8 +40,10 @@ export function History() {
         </div>
 
         <div className="mt-12">
-          <h3 className="text-2xl font-bold mb-8 text-center">Egyesületünk története</h3>
-          
+          <h3 className="text-2xl font-bold mb-8 text-center">
+            Egyesületünk története
+          </h3>
+
           {/* Timeline és kép együtt grid elrendezésben */}
           <div className="grid md:grid-cols-5 gap-8">
             {/* Bal oldali nagy kép */}
@@ -52,7 +57,7 @@ export function History() {
                 />
               </div>
             </div>
-            
+
             {/* Jobb oldali timeline elemek */}
             <div className="md:col-span-3 space-y-8">
               <TimelineItem
@@ -85,5 +90,5 @@ export function History() {
         </div>
       </div>
     </section>
-  )
+  );
 }
