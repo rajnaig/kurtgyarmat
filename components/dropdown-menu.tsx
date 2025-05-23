@@ -1,10 +1,8 @@
-// components/ui/dropdown-menu.tsx
 "use client";
 
 import * as React from "react";
-
+import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"; // ✅ EZ HIÁNYZOTT!
 import { Check, ChevronRight, Circle } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 
 const DropdownMenu = DropdownMenuPrimitive.Root;

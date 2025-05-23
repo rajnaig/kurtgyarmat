@@ -1,13 +1,17 @@
 // components/testimonial-card.tsx
-import { Quote } from "lucide-react"
+import { Quote } from "lucide-react";
 
 interface TestimonialCardProps {
-  quote: string
-  author: string
-  role: string
+  quote: string;
+  author: string;
+  role: string;
 }
 
-export default function TestimonialCard({ quote, author, role }: TestimonialCardProps) {
+export default function TestimonialCard({
+  quote,
+  author,
+  role,
+}: TestimonialCardProps) {
   return (
     <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
       <Quote className="h-8 w-8 text-muted-foreground mb-4" />
@@ -17,5 +21,5 @@ export default function TestimonialCard({ quote, author, role }: TestimonialCard
         <p className="text-sm text-muted-foreground">{role}</p>
       </div>
     </div>
-  )
+  );
 }

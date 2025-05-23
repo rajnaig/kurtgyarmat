@@ -1,14 +1,18 @@
 // components/language-switcher.tsx
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Globe } from "lucide-react"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./dropdown-menu"
-
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Globe } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./dropdown-menu";
 
 export default function LanguageSwitcher() {
-  const [language, setLanguage] = useState("Magyar")
+  const [language, setLanguage] = useState("Magyar");
 
   return (
     <DropdownMenu>
@@ -19,9 +23,13 @@ export default function LanguageSwitcher() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setLanguage("Magyar")}>Magyar</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setLanguage("English")}>English</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage("Magyar")}>
+          Magyar
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage("English")}>
+          English
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
