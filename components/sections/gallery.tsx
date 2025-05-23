@@ -1,10 +1,10 @@
 "use client";
 
-import { GalleryGrid } from "@/components/shared/gallery-card";
+import { GalleryGrid, MediaItem } from "@/components/shared/gallery-card";
 import { galleryItems } from "@/data/gallery-data";
 
 export function Gallery() {
-  const handleItemClick = (item: any) => {
+  const handleItemClick = (item: MediaItem) => {
     // TODO: Modal vagy lightbox megnyitása
     console.log("Gallery item clicked:", item);
   };

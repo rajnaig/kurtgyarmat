@@ -1,10 +1,9 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-// Típus definíció
+// Típus definíció ITT
 export interface MediaItem {
   id: string;
   title: string;
@@ -36,15 +35,13 @@ export function GalleryCard({
       )}
       onClick={onClick}
     >
-      {/* Kép konténer */}
+      {/* DEBUG: Egyszerű IMG tag Vercel teszthez */}
       <div className="relative aspect-[4/3] overflow-hidden">
-        <Image
+        <img
           src={item.src}
           alt={item.alt || item.title}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-          priority={priority}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          loading={priority ? "eager" : "lazy"}
         />
 
         {/* Overlay gradient */}
@@ -60,12 +57,12 @@ export function GalleryCard({
 
       {/* Tartalom */}
       <div className="p-4">
-        <h3 className="font-serif font-semibold text-lg text-stone-900 mb-2 line-clamp-2">
+        <h3 className="font-serif font-semibold text-lg text-stone-900 mb-2">
           {item.title}
         </h3>
-        <p className="text-stone-600 text-sm line-clamp-3">
-          {item.description}
-        </p>
+        <p className="text-stone-600 text-sm">{item.description}</p>
+        {/* DEBUG: Képútvonal megjelenítése */}
+        <p className="text-xs text-gray-400 mt-2">IMG: {item.src}</p>
       </div>
     </div>
   );
@@ -95,7 +92,7 @@ export function GalleryGrid({
           key={item.id}
           item={item}
           onClick={() => onItemClick?.(item)}
-          priority={index < 3} // Első 3 kép priority loading
+          priority={index < 3}
         />
       ))}
     </div>

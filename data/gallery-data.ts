@@ -1,13 +1,5 @@
-// Típus definíció
-export interface MediaItem {
-  id: string;
-  title: string;
-  description: string;
-  src: string;
-  type: "image" | "video";
-  alt?: string;
-  category?: string;
-}
+// Import from gallery-card
+import { MediaItem } from "@/components/shared/gallery-card";
 
 export const galleryItems: MediaItem[] = [
   {

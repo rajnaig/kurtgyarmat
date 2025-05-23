@@ -1,14 +1,32 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // KRITIKUS: Production-ban minden hiba legyen látható!
   typescript: {
-    ignoreBuildErrors: false, // ✅ JAVÍTVA: false kell production-ban
+    ignoreBuildErrors: false,
   },
   eslint: {
-    ignoreDuringBuilds: false, // ✅ JAVÍTVA: false kell production-ban
+    ignoreDuringBuilds: false,
   },
-  // Performance optimalizáció
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+
+    unoptimized: false,
+    formats: ["image/webp", "image/avif"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 60,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+
   experimental: {
     optimizePackageImports: [
       "lucide-react",
@@ -17,7 +35,6 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  // Build optimalizálás
   compiler: {
     removeConsole:
       process.env.NODE_ENV === "production"
@@ -27,7 +44,6 @@ const nextConfig: NextConfig = {
         : false,
   },
 
-  // Headers és Security
   async headers() {
     return [
       {
