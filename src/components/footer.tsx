@@ -168,11 +168,25 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-stone/10">
-          <div className="flex flex-col sm:flex-row justify-between items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-stone/60">
               &copy; {currentYear} Kürtgyarmat Hagyományőrző Íjász Egyesület.
               Minden jog fenntartva.
             </p>
+
+            <div className="flex items-center">
+              <p className="text-sm text-stone/60 mr-3">
+                Fejlesztő: Rajnai Gábor
+              </p>
+              <a
+                href="https://www.rajnaigabor.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 bg-earth text-cream rounded-full text-sm font-medium hover:bg-earth/90 transition-all duration-300 hover:scale-105 shadow-sm"
+              >
+                Weboldal megtekintése
+              </a>
+            </div>
           </div>
         </div>
       </div>
