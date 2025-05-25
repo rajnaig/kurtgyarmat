@@ -138,7 +138,7 @@ export function Study() {
             </p>
           </div>
 
-          <div className="flex justify-center mt-8">
+          {/* <div className="flex justify-center mt-8">
             <a
               href="/kurtgyarmat_tanulmany.docx"
               download
@@ -146,7 +146,7 @@ export function Study() {
             >
               Tanulmány letöltése
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
