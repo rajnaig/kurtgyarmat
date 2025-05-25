@@ -1,26 +1,165 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Íjász/Lovas témájú színpaletta */
+  --color-earth: #8b4513; /* earth brown (íj fa színe) */
+  --color-steel: #2f4f4f; /* dark slate (acél/vas szín) */
+  --color-gold: #daa520; /* goldenrod (lovas arany) */
+
+  /* Háttér és kiegészítő színek */
+  --color-cream: #faf7f2; /* warm cream */
+  --color-leather: #654321; /* bőr szín */
+  --color-parchment: #f5f0e6; /* pergamen */
+
+  /* UI színek */
+  --color-stone: #232830; /* szöveg */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-stone);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-cormorant);
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--color-earth);
+  color: var(--color-cream);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: color-mix(in srgb, var(--color-earth) 90%, transparent);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  border: 2px solid var(--color-earth);
+  color: var(--color-earth);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: color-mix(in srgb, var(--color-earth) 10%, transparent);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+/* Section styling */
+.section-title {
+  font-size: clamp(1.875rem, 4vw, 2.25rem);
+  font-family: var(--font-cormorant);
+  font-weight: 700;
+  color: var(--color-earth);
+}
+
+.section-subtitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-steel);
+}
+
+/* Container styles */
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+}
+
+/* Card styles */
+.activity-card {
+  background-color: var(--color-cream);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  transition: all 0.3s ease;
+}
+
+.activity-card:hover {
+  box-shadow: 0 25px 25px -5px rgb(0 0 0 / 0.1);
+  transform: translateY(-0.25rem);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawArrow {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-draw-arrow {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawArrow 2s ease-out forwards;
+}
+
+/* Hero specific styles */
+.hero-text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-backdrop {
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Delay utilities */
+.delay-100 {
+  animation-delay: 100ms;
+}
+.delay-200 {
+  animation-delay: 200ms;
+}
+.delay-300 {
+  animation-delay: 300ms;
+}
+.delay-500 {
+  animation-delay: 500ms;
 }
