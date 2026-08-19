@@ -13,10 +13,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.kurtgyarmat.hu"),
   title: "Kürtgyarmat Íjász Egyesület",
   description: "Magyar lovas íjász hagyományok őrzése és továbbadása",
+  alternates: {
+    // Canonical was missing (on-page SEO score was 78/100).
+    canonical: "/",
+  },
   icons: {
     icon: "/logo.png",
+  },
+  openGraph: {
+    title: "Kürtgyarmat Íjász Egyesület",
+    description: "Magyar lovas íjász hagyományok őrzése és továbbadása",
+    url: "https://www.kurtgyarmat.hu",
+    siteName: "Kürtgyarmat Íjász Egyesület",
+    locale: "hu_HU",
+    type: "website",
   },
 };
 
