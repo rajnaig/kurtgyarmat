@@ -117,12 +117,14 @@ export function Gallery() {
               {/* Navigation Arrows */}
               <div className="absolute inset-0 flex items-center justify-between p-4">
                 <button
+                  aria-label="Előző kép"
                   onClick={prevImage}
                   className="p-3 rounded-full bg-cream/90 text-earth hover:bg-cream transition-all duration-300 hover:scale-110 shadow-lg"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button
+                  aria-label="Következő kép"
                   onClick={nextImage}
                   className="p-3 rounded-full bg-cream/90 text-earth hover:bg-cream transition-all duration-300 hover:scale-110 shadow-lg"
                 >

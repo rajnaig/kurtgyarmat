@@ -169,13 +169,13 @@ export function Footer() {
 
         <div className="mt-8 pt-8 border-t border-stone/10">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-stone/60">
+            <p className="text-sm text-stone/80">
               &copy; {currentYear} Kürtgyarmat Hagyományőrző Íjász Egyesület.
               Minden jog fenntartva.
             </p>
 
             <div className="flex items-center">
-              <p className="text-sm text-stone/60 mr-3">
+              <p className="text-sm text-stone/80 mr-3">
                 Fejlesztő: Rajnai Gábor
               </p>
               <a

@@ -122,6 +122,8 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden text-[rgb(var(--color-stone))] hover:text-[rgb(var(--color-earth))] transition-colors"
+            aria-label={isOpen ? "Menü bezárása" : "Menü megnyitása"}
+            aria-expanded={isOpen}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
