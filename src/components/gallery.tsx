@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export function Gallery() {
@@ -99,18 +98,16 @@ export function Gallery() {
 
           <div className="space-y-8">
             {/* Main Image Display */}
-            <motion.div
+            <div
               key={activeIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative aspect-[4/3] max-h-[70vh] overflow-hidden rounded-2xl shadow-lg mx-auto max-w-4xl bg-cream"
+              className="gallery-fade relative aspect-[4/3] max-h-[70vh] overflow-hidden rounded-2xl shadow-lg mx-auto max-w-4xl bg-cream"
             >
               <Image
                 src={images[activeIndex].src}
                 alt={images[activeIndex].alt}
                 fill
                 className="object-contain"
+                sizes="(max-width: 896px) 100vw, 896px"
                 priority={activeIndex === 0}
               />
 
@@ -143,37 +140,52 @@ export function Gallery() {
               <div className="absolute top-4 right-4 bg-cream/90 px-3 py-1 rounded-full text-sm font-medium text-earth">
                 {activeIndex + 1} / {images.length}
               </div>
-            </motion.div>
+            </div>
 
             {/* Thumbnail Grid */}
             <div className="grid grid-cols-4 md:grid-cols-6 gap-4">
               {images.map((image, index) => (
-                <motion.button
+                <button
                   key={image.src}
                   onClick={() => setActiveIndex(index)}
-                  className={`relative aspect-[4/3] rounded-lg overflow-hidden transition-all duration-300 ${
+                  className={`relative aspect-[4/3] rounded-lg overflow-hidden transition-all duration-300 active:scale-95 ${
                     index === activeIndex
                       ? "ring-4 ring-earth shadow-lg scale-105"
                       : "hover:scale-105 hover:shadow-md"
                   }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                 >
                   <Image
                     src={image.src}
                     alt={image.alt}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 25vw, 16vw"
                   />
                   {index === activeIndex && (
                     <div className="absolute inset-0 bg-earth/20"></div>
                   )}
-                </motion.button>
+                </button>
               ))}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Crossfade when the active image changes (keyed remount restarts it) */}
+      <style jsx global>{`
+        .gallery-fade {
+          animation: galleryFadeIn 0.5s ease-out;
+        }
+
+        @keyframes galleryFadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      `}</style>
     </section>
   );
 }

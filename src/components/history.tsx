@@ -101,6 +101,7 @@ export function History() {
               alt="Történelmi Örökség - Magyar lovas íjász hagyományok"
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 text-center p-8">
@@ -126,6 +127,7 @@ export function History() {
                   alt="Egyesületünk története"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 40vw"
                 />
               </div>
             </div>

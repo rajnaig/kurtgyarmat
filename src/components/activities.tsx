@@ -1,23 +1,16 @@
 "use client";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { Target, Zap, Hammer } from "lucide-react";
 
 interface ActivityCardProps {
   title: string;
   description: string;
   icon: React.ReactNode;
-  index: number;
 }
 
-function ActivityCard({ title, description, icon, index }: ActivityCardProps) {
+function ActivityCard({ title, description, icon }: ActivityCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.2 }}
-      viewport={{ once: true }}
-      className="group bg-cream rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-    >
+    <div className="activity-reveal group bg-cream rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
       <div className="p-8">
         {/* Icon */}
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-earth/10 mb-6 group-hover:bg-earth/20 transition-colors">
@@ -41,7 +34,7 @@ function ActivityCard({ title, description, icon, index }: ActivityCardProps) {
 
       {/* Decorative bottom border */}
       <div className="h-1 bg-gradient-to-r from-earth to-gold"></div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -67,6 +60,27 @@ export function Activities() {
     },
   ];
 
+  // Scroll-triggered reveal without a JS animation library.
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = document.querySelectorAll(".activity-reveal");
+    elements.forEach((element) => observer.observe(element));
+
+    return () => {
+      elements.forEach((element) => observer.unobserve(element));
+    };
+  }, []);
+
   return (
     <section id="activities" className="py-24 bg-parchment/30">
       <div className="container mx-auto px-4">
@@ -88,25 +102,18 @@ export function Activities() {
 
           {/* Activities Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activities.map((activity, index) => (
+            {activities.map((activity) => (
               <ActivityCard
                 key={activity.title}
                 title={activity.title}
                 description={activity.description}
                 icon={activity.icon}
-                index={index}
               />
             ))}
           </div>
 
           {/* Bottom CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mt-16"
-          >
+          <div className="activity-reveal text-center mt-16">
             <div className="bg-gradient-to-r from-earth/10 to-gold/10 rounded-2xl p-8 border border-earth/20">
               <h3 className="text-2xl font-serif font-bold text-earth mb-4">
                 Csatlakozz hozzánk!
@@ -134,9 +141,21 @@ export function Activities() {
                 Kapcsolat felvétele
               </button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
+
+      {/* CSS for reveal animation (opacity only, keeps hover transforms intact) */}
+      <style jsx global>{`
+        .activity-reveal {
+          opacity: 0;
+          transition: opacity 0.6s ease-out;
+        }
+
+        .activity-reveal.animate-in {
+          opacity: 1;
+        }
+      `}</style>
     </section>
   );
 }
